@@ -3,7 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class Cliente extends Model
 {
@@ -13,6 +14,9 @@ class Cliente extends Model
         'talla',
         'marca'
     ];
+
+    protected $connection ='mongodb';
+    protected $collection ='Clientes';
     /**
      * Get all of the equipos for the Cliente
      *
