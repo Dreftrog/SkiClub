@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('rut');
+            $table->string('email');
             $table->string('talla');
-            $table->string('marca');
             $table->timestamps();
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *

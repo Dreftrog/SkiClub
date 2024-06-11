@@ -11,8 +11,9 @@ class Cliente extends Model
     use HasFactory;
     protected $fillable=[
         'name',
-        'talla',
-        'marca'
+        'rut',
+        'email',
+        'talla'
     ];
 
     protected $connection ='mongodb';
