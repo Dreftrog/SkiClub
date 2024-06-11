@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Http\Requests\StoreClienteRequest;
 use App\Http\Requests\UpdateClienteRequest;
@@ -10,6 +11,29 @@ use App\Http\Resources\ClienteResource;
 
 class ClienteController extends Controller
 {
+    public function formularioCrear()
+    {
+        return view('crear_cliente');
+    }
+
+    public function guardarCliente(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required',
+            'rut' => 'required',
+            'email' => 'required|email',
+            'talla' => 'required',
+        ]);
+
+        $cliente = new Cliente;
+        $cliente->nombre = $request->nombre;
+        $cliente->rut = $request->rut;
+        $cliente->email = $request->email;
+        $cliente->talla = $request->talla;
+        $cliente->save();
+
+        return redirect()->route('formulario_crear_cliente')->with('success', 'Cliente creado exitosamente.');
+    }
     /**
      * Display a listing of the resource.
      *
