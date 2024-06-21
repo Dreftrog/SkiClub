@@ -72,7 +72,7 @@
                         <div>{{ session('error') }}</div>
                     @endif
 
-                    <form action="{{ route('form.submit') }}" method="POST">
+                    <form action="{{ route('guardar_cliente') }}" method="POST">
                         @csrf
                         <label for="field1">Campo 1:</label>
                         <input type="text" id="field1" name="field1" required>
