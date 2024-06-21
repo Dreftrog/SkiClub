@@ -8,6 +8,9 @@ use Jenssegers\Mongodb\Eloquent\Model;
 
 class Cliente extends Model
 {
+    protected $connection ='mongodb';
+    protected $collection ='Clientes';
+    
     use HasFactory;
     protected $fillable=[
         'name',
@@ -16,8 +19,7 @@ class Cliente extends Model
         'talla'
     ];
 
-    protected $connection ='mongodb';
-    protected $collection ='Clientes';
+
     /**
      * Get all of the equipos for the Cliente
      *
