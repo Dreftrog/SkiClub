@@ -3,6 +3,12 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
+$app = require __DIR__.'/../bootstrap/app.php';
+$app->bind('path.public', function() {
+    return __DIR__;
+});
+$app->run();
+
 define('LARAVEL_START', microtime(true));
 
 /*
